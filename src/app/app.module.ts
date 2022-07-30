@@ -12,6 +12,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { JwtInterceptor } from './helper/jwt-interceptor';
 import {ErrorInterceptor} from "./helper/error-interceptor";
+import { HeaderComponent } from './component/blocks/header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {ErrorInterceptor} from "./helper/error-interceptor";
     HomeComponent,
     FooterComponent,
     NavbarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
