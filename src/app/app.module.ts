@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { JwtInterceptor } from './helper/jwt-interceptor';
 import {ErrorInterceptor} from "./helper/error-interceptor";
 import { HeaderComponent } from './component/blocks/header/header.component';
+import { NewProductComponent } from './component/product/new-product/new-product.component';
 import { ListComponent } from './component/product/list/list.component';
 import { DetailProductComponent } from './component/product/detail-product/detail-product.component';
 
@@ -25,6 +26,7 @@ import { DetailProductComponent } from './component/product/detail-product/detai
     FooterComponent,
     NavbarComponent,
     HeaderComponent,
+    NewProductComponent,
     AppComponent,
     ListComponent,
     DetailProductComponent

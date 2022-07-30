@@ -19,4 +19,7 @@ export class ProductService {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
   }
 
-}
+  findNewProduct(): Observable<Product> {
+    return this.httpClient.get<Product>(API_URL + '/products/find-new-product')
+  }
+ }
