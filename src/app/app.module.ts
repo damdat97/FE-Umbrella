@@ -12,6 +12,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { JwtInterceptor } from './helper/jwt-interceptor';
 import {ErrorInterceptor} from "./helper/error-interceptor";
+import { HeaderComponent } from './component/blocks/header/header.component';
 import { ListComponent } from './component/product/list/list.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ListComponent } from './component/product/list/list.component';
     HomeComponent,
     FooterComponent,
     NavbarComponent,
+    HeaderComponent,
     AppComponent,
     ListComponent
   ],
