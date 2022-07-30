@@ -4,6 +4,7 @@ import {HomeComponent} from "./component/pages/home/home.component";
 import {LoginComponent} from "./component/pages/login/login.component";
 import {RegisterComponent} from "./component/pages/register/register.component";
 import {ListComponent} from "./component/product/list/list.component";
+import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'list',
     component:ListComponent
+  },
+  {
+    path:'product-detail/:id',
+    component:DetailProductComponent
   },
   {
     path: "login",

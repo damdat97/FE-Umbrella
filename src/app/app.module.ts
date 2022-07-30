@@ -14,6 +14,7 @@ import { JwtInterceptor } from './helper/jwt-interceptor';
 import {ErrorInterceptor} from "./helper/error-interceptor";
 import { HeaderComponent } from './component/blocks/header/header.component';
 import { ListComponent } from './component/product/list/list.component';
+import { DetailProductComponent } from './component/product/detail-product/detail-product.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListComponent } from './component/product/list/list.component';
     NavbarComponent,
     HeaderComponent,
     AppComponent,
-    ListComponent
+    ListComponent,
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,
