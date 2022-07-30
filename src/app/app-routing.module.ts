@@ -12,10 +12,6 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path:'list',
-    component:ListComponent
-  },
-  {
     path:'product-detail/:id',
     component:DetailProductComponent
   },
