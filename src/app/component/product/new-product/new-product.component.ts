@@ -41,7 +41,6 @@ export class NewProductComponent implements OnInit {
     this.getAllCategory();
   }
 
-
   add() {
     this.product = {
       name: this.productForm.value.name,
@@ -57,28 +56,20 @@ export class NewProductComponent implements OnInit {
     }
     console.log(this.product)
     this.productService.save(this.product).subscribe((product) => {
-      if (this.selectedImages.length !== 0) {
-        for (let i = 0; i < this.selectedImages.length; i++) {
-          let selectedImage = this.selectedImages[i];
-          var n = Date.now();
-          const filePath = `RoomsImages/${n}`;
-          const fileRef = this.storage.ref(filePath);
-          this.storage.upload(filePath, selectedImage).snapshotChanges().pipe(
-            finalize(() => {
-              fileRef.getDownloadURL().subscribe(url => {
-                const image = {
-                  linkImg: url,
-                  productId: product.id
-                };
-                console.log(url);
-                this.imageService.save(image).subscribe(() => {
-                  console.log('SUCCESSFULLY CREATE')
-                });
+      console.log(this.images)
+      for (let i = 0; i < this.images.length; i++) {
+              const image = {
+                images: this.images[i],
+                product: {
+                  id: product.id
+                }
+              };
+              this.imageService.save(image).subscribe(() => {
+                console.log('SUCCESSFULLY CREATE')
               });
-            })
-          )
-        }
       }
+    }, error => {
+      console.log(error)
     })
   }
 

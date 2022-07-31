@@ -15,12 +15,17 @@ import {ErrorInterceptor} from "./helper/error-interceptor";
 import { HeaderComponent } from './component/blocks/header/header.component';
 import { ListComponent } from './component/product/list/list.component';
 import { DetailProductComponent } from './component/product/detail-product/detail-product.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {NewProductComponent} from "./component/product/new-product/new-product.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    NewProductComponent,
     HomeComponent,
     FooterComponent,
     NavbarComponent,
@@ -33,7 +38,10 @@ import { DetailProductComponent } from './component/product/detail-product/detai
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
