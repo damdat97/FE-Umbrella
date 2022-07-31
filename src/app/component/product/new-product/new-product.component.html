@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Thêm Sản phẩm</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <form [formGroup]="productForm" (submit)="add()">-->
+<!--          <label>Tên sản phẩm:</label>-->
+<!--          <input type='text' formControlName="name" class="form-control" placeholder="Tên sản phẩm">-->
+<!--          <label>Loại</label>-->
+<!--          <select class="form-control" formControlName="categoryId">-->
+<!--            <option *ngFor="let category of listCategory" [value]="category.id">-->
+<!--              {{category.name}}-->
+<!--            </option>-->
+<!--          </select>-->
+<!--          <label>Số lượng sản phẩm:</label>-->
+<!--          <input type='number' formControlName="quantity" class="form-control" placeholder="Số lượng sản phẩm">-->
+<!--          <label>Nội dung:</label>-->
+<!--          <input type="textarea" formControlName="description" class="form-control" placeholder="Nội dung">-->
+<!--          <label>Giá:</label>-->
+<!--          <input type="number" formControlName="price" class="form-control" placeholder="Giá" min="1" value="1">-->
+<!--          <div *ngFor="let img of images" style="width: 30%; margin: 1%; float: left; height: 250px; overflow: hidden">-->
+<!--            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"-->
+<!--                 style="width: 100%"-->
+<!--                 src="{{img}}"-->
+<!--                 alt="">-->
+<!--          </div>-->
+<!--          <input type="file" id="file"-->
+<!--                 multiple-->
+<!--                 (change)="showPreview($event)"-->
+<!--                 formControlName="image"-->
+<!--                 autocomplete="off" class="custom-file-input" id="inputGroupFile01">-->
+<!--          <label class="custom-file-label" for="inputGroupFile01">Choose</label>-->
+
+<!--          <div class="modal-footer">-->
+
+
+<!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--            <button type="submit" class="btn btn-primary">Thêm</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<form [formGroup]="productForm" (ngSubmit)="add()">
+  <input type="text" placeholder="Tên sản phẩm" formControlName="name"> <br>
+  <input type="text" placeholder="Nội dung" formControlName="description"> <br>
+  <input type="text" placeholder="Gía sản phẩm" formControlName="price"><br>
+  <input type="text" placeholder="Số lượng sản phẩm" formControlName="quantity"><br>
+  <select formControlName="categoryId">
+    <option *ngFor="let categories of listCategory" value="{{categories.id}}">
+      {{categories.name}}
+    </option>
+  </select>
+  <input type="file" placeholder="Chọn ảnh" id="file"
+         #userPhoto
+         multiple
+         (change)="showPreview($event)"
+         name="image"
+         autocomplete="off" class="custom-file-input" id="inputGroupFile01">
+
+  <img *ngFor="let img of images" class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;"
+       src="{{img}}"
+       alt="">
+  <button type="submit" class="btn-primary">Thêm</button>
+</form>
