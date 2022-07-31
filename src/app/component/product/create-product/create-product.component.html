@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<form [formGroup]="productForm" (ngSubmit)="add()">
+  <input type="text" placeholder="Tên sản phẩm" formControlName="name"> <br>
+  <input type="text" placeholder="Nội dung" formControlName="description"> <br>
+  <input type="text" placeholder="Gía sản phẩm" formControlName="price"><br>
+  <input type="text" placeholder="Số lượng sản phẩm" formControlName="quantity"><br>
+  <select formControlName="categoryId">
+    <option *ngFor="let categories of listCategory" value="{{categories.id}}">
+      {{categories.name}}
+    </option>
+  </select>
+  <input type="file" placeholder="Chọn ảnh" id="file"
+         #userPhoto
+         multiple
+         (change)="showPreview($event)"
+         name="image"
+         autocomplete="off" class="custom-file-input" id="inputGroupFile01">
+
+  <img *ngFor="let img of images" class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;"
+       src="{{img}}"
+       alt="">
+  <button>Thêm</button>
+</form>
+

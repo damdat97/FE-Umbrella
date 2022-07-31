@@ -19,6 +19,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {NewProductComponent} from "./component/product/new-product/new-product.component";
+import { CreateProductComponent } from './component/product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {NewProductComponent} from "./component/product/new-product/new-product.c
     HeaderComponent,
     AppComponent,
     ListComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
