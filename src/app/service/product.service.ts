@@ -12,11 +12,17 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {
   }
+  // getProducts(page: number){
+  //   return this.httpClient.get(API_URL + '?page=' + page);
+  // }
   getAll(): Observable<Product> {
     return this.httpClient.get<Product>(API_URL + '/products');
   }
   findById(id: any): Observable<Product> {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
+  }
+  searchByName(name:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-by-name?name='+name);
   }
 
 }

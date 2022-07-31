@@ -18,10 +18,14 @@
               <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on
                 a great deal.</p>
             </div>
+            <form [formGroup]="product" (ngSubmit)="searchByName()">
+              <input type="text" formControlName='name'>
+              <button>Tìm theo tên</button>
+            </form>
 
             <div class="agile_top_brands_grids">
-              <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
-                <div class="hover14 column">
+              <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i " >
+                <div class="hover14 column">,
                   <div class="agile_top_brand_left_grid">
                     <div class="agile_top_brand_left_grid1">
                       <figure>
@@ -33,6 +37,7 @@
                             <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                             <h4>{{product.price}}</h4>
                           </div>
+<!--                          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>-->
                           <div class="snipcart-details top_brand_home_details">
                             <form action="#" method="post">
                               <fieldset>
