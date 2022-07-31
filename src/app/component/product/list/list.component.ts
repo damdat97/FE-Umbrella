@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Product} from "../../../model/product";
 import {ProductService} from "../../../service/product.service";
 
@@ -26,4 +26,7 @@ export class ListComponent implements OnInit {
     })
   }
 
+  addToCart(event: any) {
+    console.log(event)
+  }
 }

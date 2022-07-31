@@ -13,4 +13,7 @@ export class HomeComponent implements OnInit {
 
   }
 
+  addToCart(event: any) {
+    console.log(event)
+  }
 }
