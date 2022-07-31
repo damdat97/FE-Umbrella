@@ -9,7 +9,7 @@ import {HomeComponent} from "./component/pages/home/home.component";
 import {FooterComponent} from "./component/blocks/footer/footer.component";
 import {NavbarComponent} from "./component/blocks/navbar/navbar.component";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { JwtInterceptor } from './helper/jwt-interceptor';
 import {ErrorInterceptor} from "./helper/error-interceptor";
 import { HeaderComponent } from './component/blocks/header/header.component';
@@ -30,13 +30,14 @@ import {NgxPaginationModule} from "ngx-pagination";
     ListComponent,
     DetailProductComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgxPaginationModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        FormsModule
+    ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor, multi: true

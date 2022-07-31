@@ -11,6 +11,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class ListComponent implements OnInit {
   products: Product[] | any;
+  from: any;
+  to:any;
   product:FormGroup=new FormGroup({
     name:new FormControl('')
   })
@@ -39,6 +41,15 @@ export class ListComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+  }
+    searchByPrice(){
+
+      this.productService.searchByPrice(this.from,this.to).subscribe((data) => {
+        console.log(data)
+        this.products = data;
+      }, error => {
+        console.log(error)
+      })
 
   }
   // product:any;

@@ -24,5 +24,7 @@ export class ProductService {
   searchByName(name:any):Observable<Product[]> {
     return this.httpClient.get<Product[]>(API_URL + '/products/find-by-name?name='+name);
   }
-
+  searchByPrice(from:any,to:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + `/products/find-all-by-price-between?from=`+from+`&to=`+to);
+  }
 }
