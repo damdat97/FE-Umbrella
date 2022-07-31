@@ -16,6 +16,9 @@ import { HeaderComponent } from './component/blocks/header/header.component';
 import { NewProductComponent } from './component/product/new-product/new-product.component';
 import { ListComponent } from './component/product/list/list.component';
 import { DetailProductComponent } from './component/product/detail-product/detail-product.component';
+import { EditComponent } from './component/product/edit/edit.component';
+import { DeleteComponent } from './component/product/delete/delete.component';
+import { ListCategoryComponent } from './component/category/list-category/list-category.component';
 import { ProductComponent } from './component/product/product/product.component';
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ProductComponent } from './component/product/product/product.component'
     AppComponent,
     ListComponent,
     DetailProductComponent,
-    ProductComponent
+    ProductComponent,
+    EditComponent,
+    DeleteComponent,
+    ListCategoryComponent
   ],
   imports: [
     BrowserModule,
