@@ -10,6 +10,8 @@ import {ProductService} from "../../../service/product.service";
 export class ListComponent implements OnInit {
   products: Product[] | any;
 
+  cartProducts: any[] = [];
+
   constructor(private productService: ProductService) {
   }
 
@@ -28,5 +30,18 @@ export class ListComponent implements OnInit {
 
   addToCart(event: any) {
     console.log(event)
+   if ("cart" in localStorage){
+     this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+     let exist = this.cartProducts.find(item => item.id == event.id)
+     if (exist) {
+       alert("Product is already in you cart")
+     } else {
+       this.cartProducts.push(event)
+       localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+     }
+   } else {
+     this.cartProducts.push(event)
+     localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+   }
   }
 }
