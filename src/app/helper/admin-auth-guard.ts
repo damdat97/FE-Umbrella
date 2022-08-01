@@ -10,6 +10,7 @@ import {
 } from '@angular/router';
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
+import {isDefaultLibrary} from "@angular/compiler-cli/ngcc/src/packages/source_file_cache";
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +38,10 @@ export class AdminAuthGuard implements CanActivate, CanActivateChild, CanLoad {
       for (const role of roleList) {
         if (role.authority === 'ROLE_ADMIN') {
           hasRoleAdmin = true;
-          break;
-        }
-        if (role.authority === 'ROLE_USER') {
+        } else if (role.authority === 'ROLE_USER') {
           hasRoleUser = true;
-          break;
         }
+        break;
       }
       if (hasRoleAdmin) {
         return true;

@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
     name: new FormControl("", [Validators.required]),
-    phone: new FormControl("", [Validators.required]),
+    phone: new FormControl("", [Validators.required,Validators.pattern("(03|05|07|08|09)+([0-9]{8})")]),
     username: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
     password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
     confirmPassword: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
@@ -53,4 +53,10 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  checkConfirmPassword() {
+    if (this.registerForm.get('password')?.value != this.registerForm.get('confirmPassword')?.value) {
+      // @ts-ignore
+      document.getElementById("confirm").style.display = "block";
+    }
+  }
 }

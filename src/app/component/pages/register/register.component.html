@@ -20,33 +20,54 @@
       <h5>profile information</h5>
         <input type="text" placeholder="Họ và tên" formControlName="name">
         <div class="error-page" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
-          <div *ngIf="name?.errors?.['required']" class="error-title">
+          <div style="color: red" *ngIf="name?.errors?.['required']">
             <p>Tên không được để trống</p>
           </div>
         </div>
         <input type="number" placeholder="Số điện thoại" formControlName="phone">
         <div class="error-page" *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
-          <div *ngIf="phone?.errors?.['required']" class="error-title">
+          <div style="color: red" *ngIf="phone?.errors?.['required']">
             <p>Số điện thoại không được để trống</p>
           </div>
         </div>
       <h6>Login information</h6>
         <input type="text" placeholder="Tên đăng nhập" formControlName="username">
-        <div class="error-page" *ngIf="username?.invalid && (username?.dirty || username?.touched)">
-          <div *ngIf="username?.errors?.['required']" class="error-title">
-            <p>Tên đăng nhập không được để trống</p>
+        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+          <div style="color: red" *ngIf="username?.errors?.['required']">
+            <small>Tên tài khoản không được bỏ trống</small>
+          </div>
+          <div style="color: red" *ngIf="username?.errors?.['minlength']">
+            <small>Tên tài khoản phải ít nhất 6 kí tự</small>
+          </div>
+          <div style="color: red" *ngIf="username?.errors?.['maxlength']">
+            <small>Tên tài khoản tối đa 30 kí tự</small>
           </div>
         </div>
         <input type="password" placeholder="Mật khẩu" formControlName="password">
-        <div class="error-page" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-          <div *ngIf="password?.errors?.['required']" class="error-title">
-            <p>Mật khẩu không được để trống</p>
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <div style="color: red" *ngIf="password?.errors?.['required']">
+            <small> Mật khẩu không được bỏ trống</small>
+          </div>
+          <div style="color: red" *ngIf="password?.errors?.['minlength']">
+            <small> Mật khẩu phải có ít nhất 6 kí tự</small>
+          </div>
+          <div style="color: red" *ngIf="password?.errors?.['maxlength']">
+            <small>Mật khẩu tối đa 30 kí tự</small>
           </div>
         </div>
         <input type="password" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword">
-        <div class="error-page" *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
-          <div *ngIf="confirmPassword?.errors?.['required']" class="error-title">
-            <p>Xác nhận mật khẩu không được để trống</p>
+        <div style="display: none;color: red" id="confirm" (change)="checkConfirmPassword()">
+          <small>Mật khẩu nhập lại không đúng</small>
+        </div>
+        <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+          <div style="color: red" *ngIf="confirmPassword?.errors?.['required']">
+            <small>Xác nhận mật khẩu không được bỏ trống</small>
+          </div>
+          <div style="color: red" *ngIf="confirmPassword?.errors?.['minlength']">
+            <small>Xác nhận mật khẩu phải có ít nhất 6 kí tự </small>
+          </div>
+          <div style="color: red" *ngIf="confirmPassword?.errors?.['maxlength']">
+            <small>Xác nhận mật khẩu tối đa 30 kí tự</small>
           </div>
         </div>
         <input type="submit" value="Register">
